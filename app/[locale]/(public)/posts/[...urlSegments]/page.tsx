@@ -11,6 +11,7 @@ export default async function PostPage({
   params: Promise<{ urlSegments: string[] }>;
 }) {
   const resolvedParams = await params;
+  console.log(`📕 resolvedParams - 14:page.tsx \n`, resolvedParams);
   const filepath = resolvedParams.urlSegments.join('/');
   const data = await client.queries.post({
     relativePath: `${filepath}.mdx`,

@@ -1,0 +1,74 @@
+---
+title: Tìm hiểu về Mermaid
+heroImg: /uploads/posts/learning-about-mermaid.png
+excerpt: >
+  Khám phá sức mạnh của Mermaid - một công cụ tạo biểu đồ dựa trên văn bản. Học cách
+  tạo biểu đồ luồng, biểu đồ chuỗi, biểu đồ Gantt và nhiều loại biểu đồ khác
+  trực tiếp trong Markdown của bạn.
+author: content/authors/napoleon.md
+date: 2024-06-15T10:00:00.000Z
+tags:
+  - tag: content/tags/mermaid.mdx
+---
+
+Mermaid là một công cụ tạo biểu đồ dựa trên văn bản, cho phép bạn tạo biểu đồ và sơ đồ bằng cách sử dụng cú pháp tương tự như Markdown. Điều này làm cho việc tạo và duy trì biểu đồ trở nên dễ dàng hơn nhiều so với các công cụ trực quan truyền thống.
+
+## Các loại biểu đồ
+
+Mermaid hỗ trợ nhiều loại biểu đồ khác nhau:
+
+### Biểu đồ luồng (Flowchart)
+
+```mermaid
+graph TD
+    A[Bắt đầu] --> B{Quyết định}
+    B -->|Có| C[Làm gì đó]
+    B -->|Không| D[Làm điều khác]
+    C --> E[Kết thúc]
+    D --> E
+```
+
+### Biểu đồ chuỗi (Sequence Diagram)
+
+```mermaid
+sequenceDiagram
+    participant A as Người dùng
+    participant B as Hệ thống
+    A->>B: Gửi yêu cầu
+    B->>B: Xử lý
+    B-->>A: Trả về kết quả
+```
+
+### Biểu đồ Gantt
+
+```mermaid
+gantt
+    title Lịch trình dự án
+    dateFormat  YYYY-MM-DD
+    section Phát triển
+    Thiết kế    :a1, 2024-01-01, 30d
+    Lập trình   :a2, after a1, 20d
+    Kiểm thử    :a3, after a2, 10d
+```
+
+## Cách sử dụng
+
+Để sử dụng Mermaid trong Markdown của bạn, chỉ cần bọc mã biểu đồ của bạn trong khối mã với nhãn `mermaid`:
+
+````markdown
+```mermaid
+graph TD
+    A[Bắt đầu] --> B[Kết thúc]
+```
+````
+
+## Lợi ích
+
+* **Dễ dàng tạo và duy trì** - Biểu đồ được tạo từ văn bản, dễ dàng chỉnh sửa và quản lý phiên bản
+* **Tích hợp với Markdown** - Hoạt động hoàn hảo trong các tài liệu Markdown
+* **Nhiều loại biểu đồ** - Hỗ trợ nhiều loại biểu đồ khác nhau
+* **Tùy chỉnh** - Có thể tùy chỉnh màu sắc, kiểu dáng và bố cục
+
+## Tài liệu tham khảo
+
+Để tìm hiểu thêm về Mermaid và các tính năng của nó, hãy truy cập [tài liệu chính thức](https://mermaid-js.github.io/mermaid/).
