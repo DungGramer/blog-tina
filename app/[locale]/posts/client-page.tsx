@@ -19,6 +19,8 @@ interface ClientPostProps {
 
 export default function PostsClientPage(props: ClientPostProps) {
   const posts = props.data?.postConnection.edges!.map((postData) => {
+    const [slug, lang] = postData!.node!._sys.breadcrumbs;
+
     const post = postData!.node!;
     const date = new Date(post.date!);
     let formattedDate = '';
@@ -31,7 +33,7 @@ export default function PostsClientPage(props: ClientPostProps) {
       published: formattedDate,
       title: post.title,
       tags: post.tags?.map((tag) => tag?.tag?.name) || [],
-      url: `/posts/${post._sys.breadcrumbs.join('/')}`,
+      url: `/${lang}/posts/${slug}`,
       excerpt: post.excerpt,
       heroImg: post.heroImg,
       author: {

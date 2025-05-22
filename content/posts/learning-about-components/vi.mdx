@@ -1,0 +1,60 @@
+---
+title: Tìm hiểu về các thành phần
+heroImg: /uploads/posts/learning-about-components.png
+excerpt: >
+  Markdown thì đơn giản, nhưng đôi khi bạn cần nhiều hơn chỉ là văn bản. Học cách
+  nâng cao nội dung với các thành phần động như yếu tố tương tác, truy vấn tùy chỉnh,
+  và các khung nội dung có kiểu dáng riêng.
+author: content/authors/napoleon.md
+date: 2021-07-15T07:00:00.000Z
+---
+
+## Markdown, nhưng tốt hơn
+
+Xin chào, ngày hiện tại là <DateTime format="local" />. Markdown rất tuyệt để viết nội dung, nhưng nếu bạn cần thứ gì đó tương tác hơn thì sao? Nếu bạn muốn lấy dữ liệu động, hiển thị khung nội dung định dạng đẹp mắt, hoặc thu thập thông tin người dùng thì sao? Đó là lúc các thành phần phát huy tác dụng.
+
+***
+
+```graphql
+query MyQuery($relativePath: String!) {
+  page(relativePath: $relativePath) {
+    title
+  }
+}
+```
+
+> Với các thành phần, nội dung Markdown không chỉ là văn bản tĩnh—nó trở thành một trải nghiệm động. Bạn có thể lấy dữ liệu, định dạng nội dung tuyệt đẹp và thậm chí xây dựng các phần tử tương tác trực tiếp bên trong bài viết của bạn.
+
+![Nâng cao Markdown với các thành phần](/uploads/unsplash-75EFpyXu3Wg.jpg)
+
+Hãy phân tích một vài ví dụ về cách các thành phần có thể cải thiện nội dung dựa trên Markdown của bạn.
+
+<NewsletterSignup
+  placeholder="Nhập email của bạn"
+  buttonText="Thông báo cho tôi"
+  disclaimer={<>
+    Chúng tôi quan tâm đến bảo mật dữ liệu của bạn. Đọc [Chính sách bảo mật](/privacy) của chúng tôi.
+  </>}
+>
+  ## Cập nhật thường xuyên!
+
+  Muốn tìm hiểu thêm về cách sử dụng các thành phần? Đăng ký để nhận những bài viết hữu ích nhất trực tiếp vào hộp thư đến của bạn.
+</NewsletterSignup>
+
+## Tại sao sử dụng các thành phần trong Markdown?
+
+* **Giữ nội dung động** - Lấy dữ liệu thời gian thực thay vì văn bản tĩnh.
+* **Cải thiện đọc dễ dàng** - Sử dụng các phần tử được định dạng, nút bấm và biểu mẫu.
+* **Tăng tương tác người dùng** - Cho phép người dùng thực hiện hành động trực tiếp trong nội dung.
+
+## Các cách khác để sử dụng các thành phần
+
+1. **Chèn truy vấn GraphQL** - Lấy và hiển thị nội dung động.
+2. **Sử dụng khung nội dung được định dạng** - Nổi bật các điểm chính với các phần tử có kiểu dáng riêng.
+3. **Tạo biểu mẫu tương tác** - Cho phép người dùng đăng ký, gửi dữ liệu hoặc tương tác với nội dung.
+
+***
+
+<BlockQuote authorName="Uncle Rico AI">
+  Trong năm 1982, tôi có thể viết Markdown mà không nhìn thấy. Nếu tôi có các thành phần này vào thời điểm đó, tôi đã chạy blog lớn nhất trên internet, không có gì ngạc nhiên.
+</BlockQuote>

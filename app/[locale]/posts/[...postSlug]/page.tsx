@@ -1,20 +1,18 @@
-import React from 'react';
-import client from '@/tina/__generated__/client';
-import Layout from '@/components/layout/layout';
-import PostClientPage from './client-page';
+import React from "react";
+import client from "@/tina/__generated__/client";
+import Layout from "@/components/layout/layout";
+import PostClientPage from "./client-page";
 
 export const revalidate = 300;
 
 export default async function PostPage({
   params,
 }: {
-  params: Promise<{ urlSegments: string[] }>;
+  params: Promise<{ postSlug: string[]; locale: string }>;
 }) {
-  const resolvedParams = await params;
-  const filepath = resolvedParams.urlSegments.join('/');
-  const data = await client.queries.post({
-    relativePath: `${filepath}.mdx`,
-  });
+  const { locale, postSlug } = await params;
+  const fileName = `${postSlug.join("/")}/${locale}.mdx`;
+  const data = await client.queries.post({ relativePath: fileName });
 
   return (
     <Layout rawPageData={data}>
@@ -44,9 +42,11 @@ export async function generateStaticParams() {
   }
 
   const params =
-    allPosts.data?.postConnection.edges.map((edge) => ({
-      urlSegments: edge?.node?._sys.breadcrumbs,
-    })) || [];
+    allPosts.data?.postConnection.edges.map((edge) => {
+      const [slug, locale] = edge!.node!._sys.breadcrumbs;
+
+      return { postSlug: [slug], locale };
+    }) || [];
 
   return params;
 }

@@ -25,18 +25,26 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Tina",
-  description: "Tina Cloud Starter",
+  title: "DungGramer Code Blog",
+  description:
+    "DungGramer Code Blog - Share knowledge about programming and technology",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+
   return (
-    <html lang="en" className={cn(fontSans.variable, nunito.variable, lato.variable)}>
-      <body className="min-h-screen bg-background font-sans antialiased">
+    <html
+      lang={locale}
+      className={cn(fontSans.variable, nunito.variable, lato.variable)}
+    >
+      <body className='min-h-screen bg-background font-sans antialiased'>
         <VideoDialogProvider>
           {children}
           <VideoDialog />
@@ -45,4 +53,8 @@ export default function RootLayout({
       </body>
     </html>
   );
+}
+
+export async function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "vi" }];
 }

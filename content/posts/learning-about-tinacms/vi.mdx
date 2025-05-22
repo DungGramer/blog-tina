@@ -1,0 +1,93 @@
+---
+title: Tìm hiểu về TinaCMS
+heroImg: /uploads/posts/learning-about-tinacms.png
+excerpt: >
+  Khám phá TinaCMS - một hệ thống quản lý nội dung hiện đại kết hợp sức mạnh của Git
+  với giao diện trực quan. Học cách xây dựng và quản lý nội dung cho website của bạn
+  một cách hiệu quả.
+author: content/authors/napoleon.md
+date: 2024-06-10T09:00:00.000Z
+tags:
+  - tag: content/tags/tinacms.mdx
+---
+
+TinaCMS là một hệ thống quản lý nội dung (CMS) hiện đại được thiết kế cho các nhà phát triển web. Nó kết hợp sức mạnh của Git với giao diện người dùng trực quan, giúp việc quản lý nội dung trở nên dễ dàng và hiệu quả hơn.
+
+## Tại sao chọn TinaCMS?
+
+### 1. Quản lý nội dung dựa trên Git
+
+* **Kiểm soát phiên bản** - Mọi thay đổi đều được theo dõi trong Git
+* **Làm việc ngoại tuyến** - Chỉnh sửa nội dung ngay cả khi không có kết nối internet
+* **Quy trình làm việc phối hợp** - Dễ dàng phối hợp với team thông qua các nhánh Git
+
+### 2. Giao diện trực quan
+
+* **Chỉnh sửa trực tiếp** - Xem và chỉnh sửa nội dung trong thời gian thực
+* **Tùy chỉnh dễ dàng** - Tạo các trường và bố cục tùy chỉnh cho nội dung của bạn
+* **Hỗ trợ đa phương tiện** - Quản lý hình ảnh và tài liệu một cách trực quan
+
+### 3. Tích hợp với các framework hiện đại
+
+* **Next.js** - Tích hợp hoàn hảo với Next.js
+* **React** - Xây dựng trên React để tạo trải nghiệm người dùng tốt nhất
+* **TypeScript** - Hỗ trợ TypeScript để phát triển an toàn hơn
+
+## Bắt đầu với TinaCMS
+
+1. **Cài đặt** - Thêm TinaCMS vào dự án của bạn:
+   ```bash
+   npm install tinacms @tinacms/cli
+   ```
+
+2. **Cấu hình** - Tạo file cấu hình `tina/config.ts`:
+   ```typescript
+   import { defineConfig } from "tinacms";
+
+   export default defineConfig({
+     branch: "main",
+     clientId: "your-client-id",
+     token: "your-token",
+     build: {
+       outputFolder: "admin",
+       publicFolder: "public",
+     },
+     schema: {
+       collections: [
+         {
+           name: "post",
+           label: "Posts",
+           path: "content/posts",
+           fields: [
+             {
+               type: "string",
+               name: "title",
+               label: "Title",
+             },
+             {
+               type: "rich-text",
+               name: "body",
+               label: "Body",
+             },
+           ],
+         },
+       ],
+     },
+   });
+   ```
+
+3. **Chạy** - Khởi động TinaCMS:
+   ```bash
+   npx tinacms dev -c "npm run dev"
+   ```
+
+## Tính năng nâng cao
+
+* **Tích hợp với TinaCloud** - Quản lý nội dung trên đám mây
+* **Hỗ trợ đa ngôn ngữ** - Dễ dàng quản lý nội dung đa ngôn ngữ
+* **API linh hoạt** - Tích hợp với bất kỳ hệ thống backend nào
+* **Tùy chỉnh giao diện** - Tạo trải nghiệm chỉnh sửa phù hợp với nhu cầu của bạn
+
+## Tài liệu tham khảo
+
+Để tìm hiểu thêm về TinaCMS và các tính năng của nó, hãy truy cập [tài liệu chính thức](https://tina.io/docs/).
