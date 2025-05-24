@@ -1,24 +1,15 @@
 import { languages } from "@/lib/i18next.config";
 import type { Language } from "@/types/localization";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export const revalidate = 300;
 
 export default async function Home({
   params,
-}: Readonly<{
-  params: Promise<{ locale: "en" | "vi" }>;
-}>) {
+}: {
+  params: Promise<{ locale: Language }>;
+}) {
   const { locale } = await params;
-
-  /* const data = await client.queries.page({
-    relativePath: `home.mdx`,
-  });
-
-  return (
-    <Layout rawPageData={data}>
-      <PostClientPage {...data} />
-    </Layout>
-  ); */
 
   return (
     <main className='flex min-h-screen flex-col items-center justify-between p-24'>
@@ -28,28 +19,8 @@ export default async function Home({
             ? "Welcome to Blog Tina"
             : "Chào mừng đến với Blog Tina"}
         </h1>
-        <div className='flex gap-4'>
-          {languages.map((language) => (
-            <a
-              key={language}
-              href={`/${language}`}
-              className={`px-4 py-2 rounded ${
-                language === locale
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-200 text-gray-800"
-              }`}
-            >
-              {language.toUpperCase()}
-            </a>
-          ))}
-        </div>
+        <LanguageSwitcher currentLocale={locale} languages={languages} />
       </div>
     </main>
   );
-}
-
-export async function generateStaticParams() {
-  const locales: Language[] = ['en', 'vi'];
-
-  return locales.map(locale => ({ locale }));
 }
